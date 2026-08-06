@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Python Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="glass-header">
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Hi, I'm a <span class="highlight">Python Developer</span></h1>
+                <p>Building aesthetic, dynamic, and scalable applications.</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>I am a passionate developer focusing on backend APIs, data analysis, and modern web applications. I love solving complex problems with elegant, efficient code.</p>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>CLI Calculator</h3>
+                    <p>A python command-line application supporting robust basic arithmetic operations.</p>
+                </div>
+                <div class="project-card">
+                    <h3>News Scraper</h3>
+                    <p>Automated tool leveraging BeautifulSoup to gather live news headlines.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Sales Analyzer</h3>
+                    <p>Data insights and visual charts generated using Pandas & Matplotlib.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="flash-messages">
+                  {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your Message..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. Built with Flask.</p>
+    </footer>
+</body>
+</html>

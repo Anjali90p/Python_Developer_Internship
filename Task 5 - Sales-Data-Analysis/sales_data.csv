@@ -1,0 +1,9 @@
+Date,Region,Product,Sales,Profit
+2023-01-01,North,Widgets,150.0,20.0
+2023-01-02,South,Gadgets,200.0,30.0
+2023-01-02,North,Widgets,120.0,15.0
+2023-01-03,East,Thingamabobs,300.0,50.0
+2023-01-04,West,Gadgets,250.0,40.0
+2023-01-05,South,Widgets,180.0,25.0
+2023-01-05,East,Thingamabobs,350.0,60.0
+2023-01-06,West,Widgets,220.0,35.0
